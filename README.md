@@ -37,7 +37,49 @@ Comenzamos colocando la escena tal cual como se nos pide en el guión de la prá
 
  Se puede solucionar si se añade que la opción de _IsKinematic_, lo que permite restringir que reciba empujes, gravedad u otras fuerzas que le puedan hacer interactuar.
 
- 2. 
+ 2. Plano con Collider, Cubo y Esfera con Rigidbody
+
+ La situación es la misma que la anterior, salvo que con la esfera se actuara como se actuo con el cubo anteriormente. Al ejecutar se puede observar como la esfera tambien cae al vacio, lo cual tambien se puede arreglar activando la opción de _IsKinematic_
+
+ ![situacion_1.2](./Assets/Media/situacion_1.2.gif)
+
+ 3. Plano con Collide, Cubo y Esfera con Rigidbody, Esfera Cinemática
+
+ Precisamente como comentabamos en las situaciones anteriores, si añadimos la opción _IsKinematic_, en este caso, la esfera tendra restringida las fuerzas que le afecten, lo que permite que este se quede flotando dado que ni la gravedad le afecta.
+
+ ![situacion_1.3](./Assets/Media/situacion_1.3.gif)
+
+ 4. Plano, Esfera y Cubo con RigidBody
+
+ En este caso, sin activar la opción _IsKinematic_, se ve como los tres caen al vacío infinitamente.
+
+ ![situacion_1.4](./Assets/Media/situacion_1.4.gif)
+
+ 5. Plano, Esfera y Cubo con RigidBody, Esfera tiene 10 veces mas masa que el cubo.
+
+ Para lograr esta situación, podemos ajustar la masa en el _RigidBody_, lo que al ejecutar, se puede visualizar como al principio parece que van a la misma velocidad, pero segun caiga, la esfera descendera mucho más rapido.
+
+ 6. Plano, Esfera y Cubo con RigidBody, Esfera tiene 100 veces mas masa que el cubo.
+
+ Al igual que el caso anterior, lo que pasa es que el efecto se nota mucho mas rapido dado a que la velocidad incrementa debido a la masa de la esfera.
+
+ 7. Plano, Esfera y Cubo con RigidBody, Plano cinematico, Esfera es física con fricción.
+
+ Con esto, nos aseguramos por un lado que el plano se queda quieto, y nos permite hacer de base para los otros dos objetos, por parte del cubo, como tiene rigidbody, le podemos aplicar fisicas, y este se quedara apoyado con fisicas en el suelo, mientras que con la esfera, estariamos añadiendo un material físico, que aplica una fricción en el momento de hacer contacto con el plano. Este valor de la fricción, se puede ajustar tanto como a cuanto mas baje, mas resbala, mientras que cuanto mas alto, menos rueda.
+
+ ![situacion_1.7](./Assets/Media/situacion_1.7.gif)
+
+ 8. Plano, Esfera y Cubo con RigidBody, Plano cinematico, Esfera no es física y tiene Trigger.
+
+ En este caso, la idea es similar a la anterior, pero que en la esfera, desactivamos una opcion de _IsTrigger_, junto a que es cinematico. Esto lo que hace es que la esfera tiene fisicas, como es cinematico no le afectan las fuerzas, y como tiene el IsTrigger, podemos ver como ignora los triggers que hacen contacto con su _Collider_, lo que hace que si por ejemplo, usamos el cubo y lo movemos manualmente a la esfera, la esfera lo atraviesa.
+
+ ![situacion_1.8](./Assets/Media/situacion_1.8.gif)
+
+ 9. Plano, Esfera y Cubo con RigidBody, Plano cinematico, Esfera es física y tiene Trigger.
+
+ Para este ultimo caso, la idea es que la esfera tenga activado el _IsTrigger_ pero que no sea cinematico. Esto implica que tiene las físicas, ademas de que como no es cinematico le afectan las fuerzas como la gravedad, caera por su masa, y luego este atravesará el plano dado a que como el _IsTrigger_ activo, ignorará las colisiones que tiene con otros elementos del mapa.
+
+   - [x] Ejercicio 1: Experimentar con diferentes configuraciones de los components Rigidbody y Collider y explicar los resultados obtenidos en base a lo explicado en clase.
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como funcionan los fundamentos de las fisicas en un proyecto de Unity.
