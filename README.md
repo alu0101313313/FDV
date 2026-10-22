@@ -130,4 +130,4 @@ Además gracias tambien a la adicción de la herramienta **GIT LFS**, hemos podi
 2. **Guión de la práctica:** [https://docs.google.com/document/d/1-hQ_XFYJh3NXTkmyNvRaJdqdsEcT55-Ku8L2ii5nqYA/edit?tab=t.0#heading=h.rb6z1r2u4n1s](https://docs.google.com/document/d/1-hQ_XFYJh3NXTkmyNvRaJdqdsEcT55-Ku8L2ii5nqYA/edit?tab=t.0#heading=h.rb6z1r2u4n1s)
 
 3. **Tabla comparativa de comandos:** [https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/url/view.php?id=23661](https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/url/view.php?id=23661)
->>>>>>> 32cf20c75a983781dbc17b2914d28ef02da7be2e
+
