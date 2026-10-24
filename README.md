@@ -1,4 +1,4 @@
-# Practica 01: Herramienta Git LFS
+# Ejercicios 02: Físicas 3D
 <sup> José Javier Ramos Carballo, [alu0101313313](https://github.com/alu0101313313)
 
 
@@ -79,7 +79,7 @@ Comenzamos colocando la escena tal cual como se nos pide en el guión de la prá
 
  Para este ultimo caso, la idea es que la esfera tenga activado el _IsTrigger_ pero que no sea cinematico. Esto implica que tiene las físicas, ademas de que como no es cinematico le afectan las fuerzas como la gravedad, caera por su masa, y luego este atravesará el plano dado a que como el _IsTrigger_ activo, ignorará las colisiones que tiene con otros elementos del mapa.
 
-   - [x] Ejercicio 1: Experimentar con diferentes configuraciones de los components Rigidbody y Collider y explicar los resultados obtenidos en base a lo explicado en clase.
+  - [x] Ejercicio 1: Experimentar con diferentes configuraciones de los components Rigidbody y Collider y explicar los resultados obtenidos en base a lo explicado en clase.
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como funcionan los fundamentos de las fisicas en un proyecto de Unity.
