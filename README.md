@@ -1,4 +1,4 @@
-# Practica 01: Herramienta Git LFS
+# Actividad 01: Herramienta Git LFS
 <sup> José Javier Ramos Carballo, [alu0101313313](https://github.com/alu0101313313)
 
 
@@ -12,7 +12,7 @@
 
 
 ## 1. Introducción
-En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](https://campusvirtual.ull.es/2627/doctoradoyposgrado/course/view.php?id=2627110295), nos encargaremos de trabajar con la herramienta GIT LFS, la cual nos permite subir archivos de mayor peso en nuestros repositorios.
+En esta actividad de la asignatura [Fundamentos del Desarrollo de Videojuegos](https://campusvirtual.ull.es/2627/doctoradoyposgrado/course/view.php?id=2627110295), nos encargaremos de trabajar con la herramienta GIT LFS, la cual nos permite subir archivos de mayor peso en nuestros repositorios.
 
 ## 2. Tareas a Realizar
 
@@ -49,7 +49,7 @@ Cuando lo intentamos realizar, desde la consola nos salta este error.
 
 ![git_push_explota](./media/git_push_explota.png)
 
-Precisamente, en la captura podemos ver como nos tira errores señalando el problema con el volumen del fichero, y como precisamente nos recomienda la herramienta de la cual se trata en esta práctica: **GIT LFS**
+Precisamente, en la captura podemos ver como nos tira errores señalando el problema con el volumen del fichero, y como precisamente nos recomienda la herramienta de la cual se trata en esta actividad: **GIT LFS**
 
 Para ello, procederemos a instalar esta herramienta con el sigueinte comando 
 
@@ -120,14 +120,14 @@ Si lo hemos asignado correctamente, deberia ocurrir lo siguente:
 ![ejecucción_gif](./media/ejecucción_script.gif)
 
 ## 4. Conclusiones
-Gracias a esta práctica, podemos tener unas nociones esenciales de como tener un proyecto de Unity enlazado a un repositorio de Github, lo cual lo permite hacer muy accesible si te tiene la conexión con el repositorio.
+Gracias a esta actividad, podemos tener unas nociones esenciales de como tener un proyecto de Unity enlazado a un repositorio de Github, lo cual lo permite hacer muy accesible si te tiene la conexión con el repositorio.
 
 Además gracias tambien a la adicción de la herramienta **GIT LFS**, hemos podido subir archivos considerados de gran tamaño, lo cual sera util para añadir elementos audiovisuales necesarios para proyectos avanzados en este motor.
 
 ## 5. Bibliografía
-1. **Enunciado de la práctica:** [https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/assign/view.php?id=23506](https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/assign/view.php?id=23506)
+1. **Enunciado de la actividad:** [https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/assign/view.php?id=23506](https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/assign/view.php?id=23506)
 
-2. **Guión de la práctica:** [https://docs.google.com/document/d/1-hQ_XFYJh3NXTkmyNvRaJdqdsEcT55-Ku8L2ii5nqYA/edit?tab=t.0#heading=h.rb6z1r2u4n1s](https://docs.google.com/document/d/1-hQ_XFYJh3NXTkmyNvRaJdqdsEcT55-Ku8L2ii5nqYA/edit?tab=t.0#heading=h.rb6z1r2u4n1s)
+2. **Guión de la actividad:** [https://docs.google.com/document/d/1-hQ_XFYJh3NXTkmyNvRaJdqdsEcT55-Ku8L2ii5nqYA/edit?tab=t.0#heading=h.rb6z1r2u4n1s](https://docs.google.com/document/d/1-hQ_XFYJh3NXTkmyNvRaJdqdsEcT55-Ku8L2ii5nqYA/edit?tab=t.0#heading=h.rb6z1r2u4n1s)
 
 3. **Tabla comparativa de comandos:** [https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/url/view.php?id=23661](https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/url/view.php?id=23661)
 
