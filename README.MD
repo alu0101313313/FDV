@@ -152,6 +152,84 @@ public class ejercicio1 : MonoBehaviour
 
 ![ejecucción_1d](./Assets/media/ejecuccion_1d.gif)
 
+### Ejercicio 2
+
+1. Sustituir la dirección del movimiento por su equivalente normalizada. Esto se consigue con el método normalized de la clase Vector3: this.transform.Translate(goal.normalized);
+
+Volviendo al codigo principal
+
+```C#
+using UnityEngine;
+
+public class ejercicio2 : MonoBehaviour
+{
+	public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
+
+	void Update()
+	{
+		this.transform.Translate(GoalPosition * speed * Time.deltaTime);
+	}
+}
+```
+
+La idea es normalizar el movimiento, esto significa que en cada frame el avance se realize de forma homogenea. 
+
+```C#
+using UnityEngine;
+
+public class ejercicio2 : MonoBehaviour
+{
+  public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
+
+  void Update()
+  {
+    this.transform.Translate(GoalPosition.normalized);
+  }
+}
+```
+
+2. Con el vector normalizado, lo podemos multiplicar por un valor de velocidad para determinar cómo de rápido va el personaje. public float speed = 0.1f this.transform.Translate(goal.normalized*speed)
+
+Aqui precisamente, lo que hacemos es contemplar un factor de escala que es la velocidad que decida lo rapido o lento que se mueve
+
+```C#
+using UnityEngine;
+
+public class ejercicio2 : MonoBehaviour
+{
+  public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
+	public floar speed = 0.1f;
+
+  void Update()
+  {
+    this.transform.Translate(GoalPosition.normalized * speed);
+  }
+}
+```
+
+3. A pesar de que esas velocidades puedan parecer ahora que son consistentes, no lo son, porque dependen de la velocidad a la que se produzca el Update. El tiempo entre dos Updates del mismo objeto no es necesariamente siempre el mismo, con lo que se pueden tener inconsistencias en la velocidad, y a pesar de que en aplicaciones con poca complejidad no lo notemos, se debe usar: this.transform.Translate(goal.normalized * speed*Time.deltaTime); para suavizar el movimiento ya que Time.deltaTime es el tiempo que ha pasado desde el último frame.
+
+Lo equivalente en el codigo seria lo siguiente
+
+```C#
+using UnityEngine;
+
+public class ejercicio2 : MonoBehaviour
+{
+  public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
+	public floar speed = 0.1f;
+
+  void Update()
+  {
+    this.transform.Translate(GoalPosition.normalized * speed * Ttime.deltaTime);
+  }
+}
+```
+Esto lo que nos permite es tener un movimiento como el siguiente
+
+![ejecuccion_2](./Assets/media/ejecuccion_2.gif)
+
+
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como tener trabajar el movimiento rectilineo.
