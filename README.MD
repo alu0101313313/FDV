@@ -20,6 +20,8 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ## 3. Desarrollo
 
+### Ejercicio 1
+
 Para comenzar, realizaremos el primer ejericio que nos indica que debemos realizar un desplazamiento de un objeto 3D con la función **_Translate()_**.
 
 ![cilindro_con_script_ej1](./Assets/media/cilindro_con_script_ej1.png)
@@ -27,24 +29,22 @@ Para comenzar, realizaremos el primer ejericio que nos indica que debemos realiz
 Tras vincular el script con el cilindro, y insertando el siguiente codigo:
 
 ```C#
+using UnityEngine;
 
-	using UnityEngine;
-
-	public class ejercicio1 : MonoBehaviour
+public class ejercicio1 : MonoBehaviour
+{
+	public Vector3 GoalPosition = new Vector3(22, 1, -14);
+	
+	void Start()
 	{
-		private Vector3 GoalPosition = new Vector3(22, 1, -14);
-		
-		void Start()
-		{
-			this.transform.Translate(GoalPosition);
-		}
-
-		void Update()
-		{
-				
-		}
+		this.transform.Translate(GoalPosition);
 	}
 
+	void Update()
+	{
+			
+	}
+}
 ```
 
 > [!IMPORTANT]
@@ -58,7 +58,9 @@ Es importante ver que el cilindro no se ha desplazado directamente a la posició
 
 Todo este comportamiento se indica en el enunciado, asi que lo que tenemos que comprobar son los diferentes apartados:
 
- - [ ] Añadir this.transform.Translate(goal); al Update e ir multiplicando goal = goal * 0.5f; de esta forma darás saltos más pequeños cada vez. ¿Qué sucede si pones la instrucción  goal = goal * 0.5f; en el Start?. Qué sucede si en el Update incluyes goal = goal * 2.0f;
+ 1. Añadir this.transform.Translate(goal); al Update e ir multiplicando goal = goal * 0.5f; de esta forma darás saltos más pequeños cada vez. 
+ 2. ¿Qué sucede si pones la instrucción  goal = goal * 0.5f; en el Start?. 
+ 3. ¿Qué sucede si en el Update incluyes goal = goal * 2.0f;?
 
 Al realizar estos cambios, podemos apreciar las siguientes diferencias:
 
@@ -67,34 +69,88 @@ Al realizar estos cambios, podemos apreciar las siguientes diferencias:
  - En este caso, lo que ocurre es que al recolocar la actualización en el start, se mantiene que solo se divide una vez la posición de conclusión, pero se sigue actualizando la posición cada frame, este movimiento se mantiene constante, provocando que con el siguiente codigo se resuelva de la siguiente manera:
 
  ```C#
+using UnityEngine;
 
-	using UnityEngine;
-
-	public class ejercicio1 : MonoBehaviour
+public class ejercicio1 : MonoBehaviour
+{
+	public Vector3 GoalPosition = new Vector3(22, 1, -14);
+	
+	void Start()
 	{
-		private Vector3 GoalPosition = new Vector3(22, 1, -14);
-		
-		void Start()
-		{
-			// Actualización movimiento
-			GoalPosition = GoalPosition * 0.5f;
-		}
-
-		void Update()
-		{
-			this.transform.Translate(GoalPosition);
-		}
+		// Actualización movimiento
+		GoalPosition = GoalPosition * 0.5f;
 	}
 
+	void Update()
+	{
+		this.transform.Translate(GoalPosition);
+	}
+}
  ```
 
- ![ejecuccion_1b](./Assets/media/ejecucion_1b.gif)
+![ejecuccion_1b](./Assets/media/ejecucion_1b.gif)
 
  - Luego de volver a colocar la actualización de la posición en el _Update()_, junto a la función _Translate()_ cambiar la actualización para duplicar la posición final, pasa lo contrario al primer caso, donde este se mueve exponencialmente hasta llegar al limite del mapa.
 
+Similar ocurre con las siguentes cuestiones que se nos plantean.
 
+ - Configurar la coordenada Y del Objetivo en 0
+ - Poner al objetivo la coordenada Y distinta de 0
 
- 
+En el segundo caso es lo que llevamos haciendo en todo momento, que como colocamos un valor distinto a 0 en la coordenada Y del objetivo, y cundo este ejecuta se eleva o desciende depende del signo de la posición objetivo.
+
+En el primer caso, simplemente avanza hacia las coordenadas X e Z de la posición objetivo mantiendose en la coordenada Y de la posición principal del cilindro.
+
+![ejecucción y=0](./Assets/media/ejecuccion_y=0.gif)
+
+Como finalización de este primer ejercicio nos piden lo sigueinte:
+
+ - Modificar el scrpit para que el objeto despegue del suelo y vuele como un avión.
+
+Para ello, tenemos que añadir diferentes elementos en nuestro codigo. Por un lado nos encargamos de asegurarnos que este "despegue" hacia la dirección que calculamos, y a su vez, cuando llegue pare.
+
+Para poder hacer que se pare en el momento, añadimos una _flag_ que se encargase de comprobarlo en base a la distancia que nos queda para alcanzar la posición objetivo.
+
+Por otro lado recrear la sensación de que "despegue y vuele como un avion", medimos una rotación que orienta el cilindro hacia la dirección objetivo.
+
+```C#
+using UnityEngine;
+
+public class ejercicio1 : MonoBehaviour
+{
+	public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo 
+	
+	public float speed = 5f;                                // unidades por segundo
+	public float rotationSpeed = 60f;                       // grados por segundo que puede girar el morro
+	public float arrivalDistance = 0.2f;                    // distancia a la que se considera que ha llegado
+
+	private bool arrived = false;                           // flag que indica si ha llegado al objetivo
+
+	void Update()
+	{
+		// Calculamos la dirección y la distancia al objetivo
+		Vector3 direccion = GoalPosition - transform.position;
+		float distancia = direccion.magnitude;
+
+		// Si ya está lo bastante cerca, se coloca exactamente en el objetivo y se detiene
+		if (distancia <= arrivalDistance)
+		{
+			transform.position = GoalPosition;
+			arrived = true;
+			return;
+		}
+
+		// Gira poco a poco el morro hacia el objetivo.
+		Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion);
+		transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionObjetivo, rotationSpeed * Time.deltaTime);
+
+		// Avanza hacia el objetivo
+		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+	}
+}
+```
+
+![ejecucción_1d](./Assets/media/ejecuccion_1d.gif)
 
 
 ## 4. Conclusiones
