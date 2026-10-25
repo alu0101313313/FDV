@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ejercicio1 : MonoBehaviour
 {
-    private Vector3 GoalPosition = new Vector3(22, 1, -14);
+    private Vector3 GoalPosition = new Vector3(22, 0, -14);
     
     void Start()
     {
