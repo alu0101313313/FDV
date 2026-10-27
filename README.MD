@@ -354,7 +354,9 @@ this.transform.Translate(direction.normalized * speed * Time.deltaTime)
 
 ### Ejercicio 6
 
+1. Realizar un script que gire al personaje hacia su objetivo para llegar hasta él desplazándose sobre su vector forward local.
 
+	![ejecuccion_6](./Assets/media/ejecuccion_6.gif)
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como tener trabajar el movimiento rectilineo.
