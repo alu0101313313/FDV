@@ -352,6 +352,9 @@ this.transform.Translate(direction.normalized * speed * Time.deltaTime)
 	if(space > 0f) speed++;
 	```
 
+### Ejercicio 6
+
+
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como tener trabajar el movimiento rectilineo.
