@@ -330,7 +330,27 @@ this.transform.Translate(direction.normalized * speed * Time.deltaTime)
 	Debug.DrawRay(this.transform.position, direction, Color.red);
 	```
 
+### Ejercicio 5
 
+1. Agregar un cubo en la escena que hará de objetivo, que debe ser movido por teclado, con las teclas de flechas. Sobre la escena que has trabajado ubica un personaje que va a seguir al cubo. 
+
+	![ejecuccion_5a](./Assets/media/ejecuccion_5a.gif)
+
+2. Crear un script que haga que el personaje siga al cubo continuamente sin aplicar simulación física.
+
+	Con el movimiento asignado que teniamos en los ejercicios anteriores, aproveche de añadir como posición objetivo este nuevo cubo, y entre los elementos del cilindro para acceder, añadi como posición objetivo el transform del cubo, lo que nos permite el comportamiento que se ve en el gif anterior.
+
+3. Agregar un campo público que permita graduar la velocidad del movimiento desde el inspector de objetos.
+
+	![ejercicio_5](./Assets/media/ejercicio_5c.png)
+
+4. Utilizar la tecla de espaciado para incrementar la velocidad del desplazamiento en el tiempo de juego.
+
+	```C#
+	float space = Input.GetKey(KeyCode.Space) ? 1f : 0f;
+
+	if(space > 0f) speed++;
+	```
 
 
 ## 4. Conclusiones
