@@ -243,12 +243,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 142284539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0277e9b6d062f542a7822f402efc7de, type: 3}
+  m_Script: {fileID: 11500000, guid: d6a526f73755f2144af47fc2409854d5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ejercicio4
+  m_EditorClassIdentifier: Assembly-CSharp::ejercicio7
   GoalPosition: {fileID: 1744378031}
-  speed: 10
-  arrivalDistance: 0.5
+  speed: 1
+  accuracy: 0.01
 --- !u!1 &289624772
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +707,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &1744378032
+--- !u!114 &1744378032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744378027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff87ecea4857b947a69954a0c6eae3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ejercicio5
+  speed: 15
+--- !u!143 &1744378033
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -732,19 +745,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1744378033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744378027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ff87ecea4857b947a69954a0c6eae3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ejercicio5
-  speed: 15
 --- !u!1 &1986176890
 GameObject:
   m_ObjectHideFlags: 0

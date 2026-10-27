@@ -358,6 +358,83 @@ this.transform.Translate(direction.normalized * speed * Time.deltaTime)
 
 	![ejecuccion_6](./Assets/media/ejecuccion_6.gif)
 
+### Ejercicio 7
+
+1. Controlar el jittering utilizando la magnitud de la dirección.
+
+	```C#
+	using UnityEngine;
+
+	public class ejercicio7 : MonoBehaviour
+	{
+		public Transform GoalPosition;
+		public float speed = 1.0f;
+		public float accuracy = 0.01f;
+
+		void Update()
+		{
+			Vector3 direction = GoalPosition.position - this.transform.position;
+
+			if(direction.magnitude > accuracy)
+			{
+				this.transform.LookAt(GoalPosition.position);
+				this.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+			}
+		}
+	}
+	```
+
+2. Dado que la dirección nos la da la separación entre el objetivo y el personaje, también podemos controlar el jittering utilizando la distancia entre los dos puntos.
+
+	```C#
+	using UnityEngine;
+
+	public class ejercicio7 : MonoBehaviour
+	{
+		public Transform GoalPosition;
+		public float speed = 1.0f;
+		public float accuracy = 0.01f;
+
+		void Update()
+		{
+			Vector3 direction = GoalPosition.position - this.transform.position;
+
+			if((Vector3.Distance(this.transform.position, GoalPosition.position)) > accuracy)
+			{
+				this.transform.LookAt(GoalPosition.position);
+				this.transform.Translate(Vector3.forward * speed * Time.deltaTime);
+			}
+		}
+	}
+	```
+
+3. Usar MoveTowards, que no se pasa nunca: si el paso es mayor que lo que falta, deja el objeto justo en el destino. 
+
+	```C#
+	using UnityEngine;
+
+	public class ejercicio7 : MonoBehaviour
+	{
+		public Transform GoalPosition;
+		public float speed = 1.0f;
+		public float accuracy = 0.01f;
+
+		void Update()
+		{
+			Vector3 direction = GoalPosition.position - this.transform.position;
+
+			if((Vector3.Distance(this.transform.position, GoalPosition.position)) > accuracy)
+			{
+				this.transform.LookAt(GoalPosition.position);
+				;
+			}
+		}
+	}
+	```
+
+	![ejecuccion_7](./Assets/media/ejecuccion_7.gif)
+
+
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como tener trabajar el movimiento rectilineo.
 
