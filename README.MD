@@ -156,78 +156,172 @@ public class ejercicio1 : MonoBehaviour
 
 1. Sustituir la dirección del movimiento por su equivalente normalizada. Esto se consigue con el método normalized de la clase Vector3: this.transform.Translate(goal.normalized);
 
-Volviendo al codigo principal
+	Volviendo al codigo principal
 
-```C#
-using UnityEngine;
+	```C#
+	using UnityEngine;
 
-public class ejercicio2 : MonoBehaviour
-{
-	public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
-
-	void Update()
+	public class ejercicio2 : MonoBehaviour
 	{
-		this.transform.Translate(GoalPosition * speed * Time.deltaTime);
+		public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
+
+		void Update()
+		{
+			this.transform.Translate(GoalPosition * speed * Time.deltaTime);
+		}
 	}
-}
-```
+	```
 
-La idea es normalizar el movimiento, esto significa que en cada frame el avance se realize de forma homogenea. 
+	La idea es normalizar el movimiento, esto significa que en cada frame el avance se realize de forma homogenea. 
 
-```C#
-using UnityEngine;
+	```C#
+	using UnityEngine;
 
-public class ejercicio2 : MonoBehaviour
-{
-  public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
+		public class ejercicio2 : MonoBehaviour
+		{
+		public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
 
-  void Update()
-  {
-    this.transform.Translate(GoalPosition.normalized);
-  }
-}
-```
+		void Update()
+		{
+			this.transform.Translate(GoalPosition.normalized);
+		}
+	}
+	```
 
 2. Con el vector normalizado, lo podemos multiplicar por un valor de velocidad para determinar cómo de rápido va el personaje. public float speed = 0.1f this.transform.Translate(goal.normalized*speed)
 
-Aqui precisamente, lo que hacemos es contemplar un factor de escala que es la velocidad que decida lo rapido o lento que se mueve
+	Aqui precisamente, lo que hacemos es contemplar un factor de escala que es la velocidad que decida lo rapido o lento que se mueve
 
-```C#
-using UnityEngine;
+	```C#
+	using UnityEngine;
 
-public class ejercicio2 : MonoBehaviour
-{
-  public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
-	public floar speed = 0.1f;
+	public class ejercicio2 : MonoBehaviour
+	{
+		public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
+		public floar speed = 0.1f;
 
-  void Update()
-  {
-    this.transform.Translate(GoalPosition.normalized * speed);
-  }
-}
-```
+		void Update()
+		{
+			this.transform.Translate(GoalPosition.normalized * speed);
+		}
+	}
+	```
 
 3. A pesar de que esas velocidades puedan parecer ahora que son consistentes, no lo son, porque dependen de la velocidad a la que se produzca el Update. El tiempo entre dos Updates del mismo objeto no es necesariamente siempre el mismo, con lo que se pueden tener inconsistencias en la velocidad, y a pesar de que en aplicaciones con poca complejidad no lo notemos, se debe usar: this.transform.Translate(goal.normalized * speed*Time.deltaTime); para suavizar el movimiento ya que Time.deltaTime es el tiempo que ha pasado desde el último frame.
 
-Lo equivalente en el codigo seria lo siguiente
+	Lo equivalente en el codigo seria lo siguiente
 
-```C#
-using UnityEngine;
+	```C#
+	using UnityEngine;
 
-public class ejercicio2 : MonoBehaviour
-{
-  public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
-	public floar speed = 0.1f;
+	public class ejercicio3 : MonoBehaviour
+	{
+		public Vector3 GoalPosition = new Vector3(22, 10, -14); // posición objetivo
+		public floar speed = 0.1f;
 
-  void Update()
-  {
-    this.transform.Translate(GoalPosition.normalized * speed * Ttime.deltaTime);
-  }
-}
-```
-Esto lo que nos permite es tener un movimiento como el siguiente
+		void Update()
+		{
+			this.transform.Translate(GoalPosition.normalized * speed * Time.deltaTime);
+		}
+	}
+	```
+	Esto lo que nos permite es tener un movimiento como el siguiente
 
-![ejecuccion_2](./Assets/media/ejecuccion_2.gif)
+	![ejecuccion_2](./Assets/media/ejecuccion_2.gif)
+
+### Ejercicio 3
+
+1. Hacemos el objetivo una variable pública public Transform goal y añadimos un public float speed = 1.0f.  
+
+	En este apartado pillamos el movimiento que ya habiamos realizado tanto que dependiese de que fuese uniforme, y que tuviese la posición objetivo y la velocidad como variables publicas para poder manejar desde el propio motor de Unity.
+	
+	```C#
+	using UnityEngine;
+
+	public class ejercicio3 : MonoBehaviour
+	{
+		public Transform GoalPosition  // posición objetivo
+		public floar speed = 1.0f;
+
+		void Update()
+		{
+			this.transform.Translate(GoalPosition.normalized * speed * Time.deltaTime);
+		}
+	}
+	```
+
+2. Giramos al personaje para lograr que su movimiento sea hacia delante utilizando this.transform.LookAt(goal.position) en el Start para que gire primero y luego se mueva. 
+
+	Modificamos el codigo que tenemos para tratar de rotar nuestro cilindro, hacia la dirección de la posición objetivo 
+
+	```C#
+	using UnityEngine;
+
+	public class ejercicio3 : MonoBehaviour
+	{
+		public Transform GoalPosition // posición objetivo
+		public floar speed = 0.1f;
+
+		void Start()
+		{
+			// Orienta el objeto hacia la posición objetivo al inicio
+			this.transform.LookAt(GoalPosition);
+		}
+
+		void Update()
+		{
+			this.transform.Translate(GoalPosition.normalized * speed * Time.deltaTime);
+		}
+	}
+	```
+
+3. La dirección en la que nos tenemos que mover viene determinada por la diferencia entre la posición del objetivo y nuestra posición:
+ Vector3 direction = goal.position - this.transform.position;
+this.transform.Translate(direction.normalized * speed * Time.deltaTime)
+ 
+	Modificamos el codigo que tenemos, para tratar de rotar nuestro cilindro, hacia la dirección de la posición objetivo. 
+
+	```C#
+	using UnityEngine;
+
+	public class ejercicio3 : MonoBehaviour
+	{
+		public Transform GoalPosition;   // posición objetivo
+		public float speed = 1.0f;       // unidades por segundo
+		
+		void Start()
+		{
+			// Orienta el objeto hacia la posición objetivo al inicio
+			this.transform.LookAt(GoalPosition.position);
+		}
+
+		void Update()
+		{
+			// Si ya ha llegado, no hace nada
+			if (arrived) return; 
+			
+			// Calcula la dirección hacia el objetivo
+			Vector3 direction = GoalPosition.position - transform.position;
+			
+			// Mueve el objeto hacia la posición objetivo
+			this.transform.Translate(direction.normalized * speed * Time.deltaTime);
+		}
+	}
+	```
+
+	![ejecucción 3b](./Assets/media/ejecuccion_3b.gif)
+
+	Si lo ejecutamos en este momento, como la orientación del personaje va a cambiar, el translate no va a funcionar correctamente, el vector direction se ha calculado con el sistema de referencia alineado con el mundo. Al rotar al personaje cambiamos ese sistema de referencia, por tanto, habrá que hacer el cambio a la dirección. Los ejes del personaje y el mundo no están alineados. El movimiento se debe hacer de forma relativa al sistema de referencia del mundo.
+
+	```C#
+	// Mueve el objeto con respecto al mundo hacia la posición objetivo
+	this.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+	```
+
+	![ejecuccion_3c](./Assets/media/ejecuccion_3c.gif)
+
+
+4. 
 
 
 
