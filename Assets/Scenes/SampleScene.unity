@@ -243,11 +243,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 142284539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1e381e4a1508964cbe27e42faa59adc, type: 3}
+  m_Script: {fileID: 11500000, guid: f0277e9b6d062f542a7822f402efc7de, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ejercicio3
+  m_EditorClassIdentifier: Assembly-CSharp::ejercicio4
   GoalPosition: {fileID: 289624773}
-  speed: 12
+  speed: 1
   arrivalDistance: 0.5
 --- !u!1 &289624772
 GameObject:

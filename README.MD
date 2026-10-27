@@ -321,7 +321,15 @@ this.transform.Translate(direction.normalized * speed * Time.deltaTime)
 	![ejecuccion_3c](./Assets/media/ejecuccion_3c.gif)
 
 
-4. 
+### Ejercicio 4
+
+1. Añadir Debug.DrawRay(this.transform.position,direction,Color.red) para depuración para comprobar que la dirección está correctamente calculada
+
+	```C#
+	// Dibuja un rayo rojo desde la posición del objeto hacia la dirección del objetivo 
+	Debug.DrawRay(this.transform.position, direction, Color.red);
+	```
+
 
 
 
