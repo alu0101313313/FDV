@@ -434,6 +434,12 @@ this.transform.Translate(direction.normalized * speed * Time.deltaTime)
 
 	![ejecuccion_7](./Assets/media/ejecuccion_7.gif)
 
+### Ejercicio 8
+
+1. En este ejercicio se trabaja el Movimiento rectilíneo haciendo avanzar al personaje siempre en línea recta hacia adelante introduciendo una mejora. El uso de la función LookAt hace que el personaje gire instantáneamente hacia el objetivo, provocando cambios bruscos.
+
+	![](./Assets/media/ejecuccion_8.gif)
+
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como tener trabajar el movimiento rectilineo.
