@@ -81,6 +81,55 @@ Comenzamos colocando la escena tal cual como se nos pide en el guión de la prá
 
   - [x] Ejercicio 1: Experimentar con diferentes configuraciones de los components Rigidbody y Collider y explicar los resultados obtenidos en base a lo explicado en clase.
 
+  **_Ejercicio 2_**: Crea un controlador con las teclas flecha arriba-abajo, derecha-izquierda que controle al cilindro con físicas
+
+  ```C#
+
+  using UnityEngine;
+
+  [RequireComponent(typeof(CharacterController))]
+  public class Cilinder_movement : MonoBehaviour
+  {
+    [SerializeField] float speed = 5f;
+
+    [SerializeField] float gravity = -20f;
+    [SerializeField] float rotationSpeed = 10f;
+
+    CharacterController controller;
+    Vector3 velocity;
+
+    void Awake() => controller = GetComponent<CharacterController>();
+
+    void Update()
+    {
+      float x = Input.GetAxisRaw("Horizontal");
+      float z = Input.GetAxisRaw("Vertical");
+
+      Vector3 move = new Vector3(x, 0, z).normalized;
+
+      if (move.magnitude > 0.1f)
+      {
+        // Girar suavemente hacia la dirección de movimiento
+        Quaternion targetRot = Quaternion.LookRotation(move);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+      }
+
+      controller.Move(move * speed * Time.deltaTime);
+
+      // Gravedad y salto
+      if (controller.isGrounded && velocity.y < 0)
+        velocity.y = -2f;
+
+      if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+      velocity.y += gravity * Time.deltaTime;
+      controller.Move(velocity * Time.deltaTime);
+    }
+  }
+
+  ```
+
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como funcionan los fundamentos de las fisicas en un proyecto de Unity.
 
