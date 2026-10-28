@@ -446,6 +446,28 @@ this.transform.Translate(direction.normalized * speed * Time.deltaTime)
 
 	![ejecuccion_9](./Assets/media/ejecuccion_9.gif)
 
+### Ejercicio 10
+
+1. Crea el circuito. Un objeto vacío con el componente WaypointCircuit.
+
+	
+
+2. Crea los waypoints como hijos. Objetos vacíos dentro del circuito colocados donde quieras que pase el personaje. El orden en la jerarquía es el orden del recorrido. Pon su altura a la del personaje para que la ruta no vaya por el suelo ni flote.
+
+
+3. Asígnalos. En el Inspector del circuito, pulsa Assign using all child objects. Cada vez que añadas, borres o reordenes un hijo, vuelve a pulsarlo.
+
+
+4. Elige recta o curva. Con Smooth Route activado la ruta es una curva que pasa por todos los puntos; desactivado, son tramos rectos. En la vista Scene verás la ruta dibujada en amarillo (con los Gizmos activados). La ruta es cerrada: del último punto vuelve al primero.
+
+
+5. Crea el objeto auxiliar. Un objeto vacío llamado Target, fuera del personaje (no como hijo, o se movería con él). Para verlo mientras pruebas, puedes ponerle una esfera pequeña sin collider. 
+
+
+6. Configura el tracker en el personaje. Añade WaypointProgressTracker, arrastra el circuito al campo Circuit y Target al campo Target. 
+
+
+7. Añade el script que persigue al target porque el tracker solo avanza cuando el personaje avanza. 
 
 
 
