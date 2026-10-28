@@ -243,12 +243,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 142284539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6a526f73755f2144af47fc2409854d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ef1548b34fab4b48b1ccd58fbef0349, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ejercicio7
+  m_EditorClassIdentifier: Assembly-CSharp::ejercicio8
   GoalPosition: {fileID: 1744378031}
-  speed: 1
+  speed: 5
   accuracy: 0.01
+  rotationSpeed: 1
 --- !u!1 &289624772
 GameObject:
   m_ObjectHideFlags: 0
