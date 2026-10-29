@@ -10,6 +10,8 @@ public class ejercicio2 : MonoBehaviour
 
     void Update()
     {
+        if (arrived) return; // Si ya ha llegado, no hace nada
+        
         // Si ya está lo bastante cerca, se coloca exactamente en el objetivo y se detiene
         if (Vector3.Distance(transform.position, GoalPosition) <= arrivalDistance)
         {

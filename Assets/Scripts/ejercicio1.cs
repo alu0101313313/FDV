@@ -12,6 +12,8 @@ public class ejercicio1 : MonoBehaviour
 
     void Update()
     {
+        if (arrived) return; // Si ya ha llegado, no hace nada
+        
         // Calculamos la dirección y la distancia al objetivo
         Vector3 direccion = GoalPosition - transform.position;
         float distancia = direccion.magnitude;
