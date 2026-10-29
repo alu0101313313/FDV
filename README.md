@@ -95,13 +95,20 @@ Con la colocación principal, realiza las siguientes situaciones:
   
   Crea varios cubos o esferas con Rigidbody dinámico. Muestra por consola el nombre del objeto con el que colisiona, y cámbiale su color al colisionar.
 
-  ![]()
+  ![situación_3](./Assets/Media/situacion_3.gif)
 
-  - [ ] Ejercicio 3: Crea varios cubos o esferas con Rigidbody dinámico. Muestra por consola el nombre del objeto con el que colisiona, y cámbiale su color al colisionar.
+  - [x] Ejercicio 3: Crea varios cubos o esferas con Rigidbody dinámico. Muestra por consola el nombre del objeto con el que colisiona, y cámbiale su color al colisionar.
 
+### Ejercicio 4
+
+  En la escena debe haber 3. Un cubo y un cilindro cinemáticos, una esfera con collider y Rigidbody. Marcar el cilindro como objetivo a alcanzar por la esfera. El cubo debe hacer de obstáculo entre ambos. Implementar un script que haga que la esfera se dirija al cilindro, cuando la esfera alcance el cubo, este debe cambiar su material y el cubo avanzar hacia adelante.
+
+  ![situación_4](./Assets/Media/situacion_4.gif)
+
+  - [x] Ejercicio 4: En la escena debe haber 3. Un cubo y un cilindro cinemáticos, una esfera con collider y Rigidbody. Marcar el cilindro como objetivo a alcanzar por la esfera. El cubo debe hacer de obstáculo entre ambos. Implementar un script que haga que la esfera se dirija al cilindro, cuando la esfera alcance el cubo, este debe cambiar su material y el cubo avanzar hacia adelante.
 
 ## 4. Conclusiones
-Gracias a esta práctica, podemos tener unas nociones esenciales de como funcionan los fundamentos de las fisicas en un proyecto de Unity.
+Gracias a esta práctica, podemos tener unas nociones esenciales de como funcionan los fundamentos de las fisicas 3D en un proyecto de Unity.
 
 ## 5. Bibliografía
 1. **Enunciado de la práctica:** [https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/assign/view.php?id=28155](https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/assign/view.php?id=28155)

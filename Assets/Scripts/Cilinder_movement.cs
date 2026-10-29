@@ -1,20 +1,35 @@
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
 public class Cilinder_movement : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
-    CharacterController controller;
+    public float force = 10f;     // Intensidad de la fuerza
+    public float maxSpeed = 5f;   // Límite de velocidad
 
-    void Awake() => controller = GetComponent<CharacterController>();
+    private Rigidbody rb;
 
-    void Update()
+    void Start()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        rb = GetComponent<Rigidbody>();
+    }
 
-        Vector3 move = new Vector3(x, 0, z).normalized;
+    void FixedUpdate()
+    {
+        // Entrada del teclado: WASD o flechas
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        controller.Move(move * speed * Time.deltaTime);
+        // Dirección de movimiento en el plano XZ
+        Vector3 direction = new Vector3(horizontal, 0f, vertical);
+
+        // Aplicar fuerza
+        rb.AddForce(direction * force);
+
+        // Limitar la velocidad horizontal para que no crezca sin control
+        Vector3 speed = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        if (speed.magnitude > maxSpeed)
+        {
+            Vector3 limited = speed.normalized * maxSpeed;
+            rb.linearVelocity = new Vector3(limited.x, rb.linearVelocity.y, limited.z);
+        }
     }
 }
