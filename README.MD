@@ -209,6 +209,47 @@ Gracias a esta implementación actualmente el movimiento se ve asi:
 
 ![correr](./Media/correr_main_character.gif)
 
+En este punto de la práctica, vamos a trabajar con el _PPU (Pixel per Unit)_. 
+
+Una unidad de Unity es una celda de la cuadrícula de la vista Scene. El PPU (Pixels Per Unit) indica cuántos píxeles de la imagen caben en una unidad, y este se calcula de la siguiente manera:
+
+```
+unidades = píxeles de altura ÷ PPU
+```
+
+Este en Unity por defecto vale 100, y en base a este, nuestro personaje tiene unas medidas indicadas en la siguiente imagen, marcadas debajo de los valores de posición x e y.  
+![alt text](./Media/pixeles_pj.png)
+
+Si aplicamos la formula con una PPU = 100, conoceremos cuantas unidades ocupa nuestro sprite.
+
+```
+unidades = 98 ÷ 100 = 0.98 uds Unity
+```
+
+![pixeles_con_ppu_100](./Media/pj1_ppu100.png)
+
+Este ejercicio nos pide dotarle de diferentes valores, concretamente con los valores 16, 32 y 100.
+
+Tras comprobar las medidas con 100, cambiamos las medidas con PPU = 32 y PPU = 16 con los siguientes resultados
+![pixeles_con_ppu_32](./Media/pj1_ppu32.png)
+![pixeles_con_ppu_16](./Media/pj1_ppu16.png)
+
+Como podemos ver, el tamaño es mayor a cuanto menor es el PPU, no obstante aqui lo que cambia no es el tamaño del sprite, lo que cambia es cuántas unidades ocupa en la escena. 
+
+Ahora, se nos requiere ajustar el PPU para que nuestro personaje ocupe entre 1 o 2 unidades en la escena. Una aproximación para escoger un valor correcto, seria invertir la formula anterior:
+
+```
+PPU = alto en píxeles ÷ unidades deseadas
+```
+
+Dado a que con la medida anterior, si escogemos 1 ud, el PPU directamente es igual al alto en pixeles, en nuestro caso 98, mientras que si escogemos 2 uds, el PPU es la mitad del alot en pixeles, en este caso 49.
+
+En mi caso escogere 98, dado a que al tener una altura inferior en pixeles, se ocupara menos de un pixel.
+
+![alt text](./Media/pixel_ppu98.png)
+
+
+
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como 
 
