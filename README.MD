@@ -124,7 +124,90 @@ La linea final se encarga de activar el flag de que el animator proceda a movers
 En la ejecucción se ve de esta forma
 ![movimiento](./Media/movimiento_main_character.gif)
 
+Ahora lo que tocamos seran los siguientes puntos:
 
+ - Declarar una variable para ir actualizando en cada frame la distancia recorrida.
+ - Una variable que le puedas dar el valor que quieras que active el cambio, si la variable distancia supera el valor, se tiene que pasar a otra animación
+ - Obtener una referencia al Animator: Tienes que acceder al componente Animator sólo una vez para utilizarlo en el código. Debes obtener una referencia a él en tu script para poder controlar el cambio de una animación a otra.
+ - En cada frame debes calcular cuánto se ha movido el personaje desde la posición inicial.
+ - Si la distancia total recorrida supere la distancia de activación, tu script debe indicarle al Animator que reproduzca la nueva animación.
+ - Calcular la distancia que hay entre la posición actual y la que anterior
+
+Para empezar decidimos hacer una nueva animación para correr, lo que nos permitiria calcular la distancia recorrida, y cambiar de animación cuando el personaje recorra una cierta cantidad caminando.
+
+Por ello, por un lado lo que hacemos una nueva animación arrastrando nuevos sprites al _Animation_, lo que nos permite generar una nueva animación en base al personaje con el que estamos trabajando.
+
+![run graph](./Media/runGraph.png)
+
+Como se puede ver en la imagen, se entiene que desde el estado **_"Idle"_**, tenemos al personaje quieto, mientras que si movemos el personaje a la izquierda o la derecha, transicionamos al estado **_"WalkRight"_**. Entonces la adicción de la animación de correr funciona de la siguiente manera: si nos mantenemos caminando en la misma dirección, tras recorrer una cierta distancia, transicionamos al estado **_"Run"_**, el cual incrementa la velocidad y obtiene una animación distinta, pero que si paramos volvermos al estado **_"Idle"_** volviendo al estado quieto.
+
+Para poder lograr esto se ha modificado el codigo de la siguiente manera:
+
+```C#
+public class CharacterMovement : MonoBehaviour
+{
+  public float speed = 3f;
+  public float runSpeed = 6f;
+  public float activatedDistance = 5f;
+  private SpriteRenderer spriteRenderer;
+  private Animator animator;
+  private Vector3 previousPosition;
+  private float distanceTraveled = 0f;
+
+  void Start()
+  {
+    spriteRenderer = GetComponent<SpriteRenderer>();
+    animator = GetComponent<Animator>();
+    previousPosition = transform.position;
+  }
+
+  void Update()
+  {
+    float horizontalUpdate = Input.GetAxis("Horizontal");
+    Vector2 movement = new Vector2(horizontalUpdate, 0);
+
+    bool isRunning = animator.GetCurrentAnimatorStateInfo(0).IsName("Run");
+    float currentSpeed = isRunning ? runSpeed : speed;
+    transform.Translate(movement * currentSpeed * Time.deltaTime);
+
+    if(horizontalUpdate > 0)
+    {
+      spriteRenderer.flipX = false;
+    } 
+    else if (horizontalUpdate < 0)
+    {
+      spriteRenderer.flipX = true;
+    }
+
+    bool moving = horizontalUpdate != 0;
+    animator.SetBool("isWalking", moving);
+
+    float distanceThisFrame = Vector3.Distance(previousPosition, transform.position);
+    previousPosition = transform.position;
+
+    if (moving)
+    {
+      distanceTraveled += distanceThisFrame;
+    }
+    else
+    {
+      distanceTraveled = 0.0f;
+    }
+    
+    animator.SetBool("longWalk", distanceTraveled > activatedDistance);
+  }
+}
+```
+
+En este nuevo codigo se han optado por añadir diferentes medidas:
+
+- Un nuevo flotante que identifica la velocidad para la animación de correr.
+- Un ternario que identique la velocidad del personaje en base si camina o corre
+- Un calculo que permite definir la distancia recorrida en base a la posición inicial y la posición actual
+
+Gracias a esta implementación actualmente el movimiento se ve asi:
+
+![correr](./Media/correr_main_character.gif)
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como 
