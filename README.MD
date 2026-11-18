@@ -246,7 +246,26 @@ Dado a que con la medida anterior, si escogemos 1 ud, el PPU directamente es igu
 
 En mi caso escogere 98, dado a que al tener una altura inferior en pixeles, se ocupara menos de un pixel.
 
-![alt text](./Media/pixel_ppu98.png)
+![ppu_98](./Media/pixel_ppu98.png)
+
+Ahora la prueba se realizara con otro tilemap. En este escogeremos otro recurso que nos vino, en el cual trataremos con un personaje similar al personaje escogido, y los ajustaremos a un PPU distinto al del personje ya tratado. En este caso hemos escogido uno de los PPU propuestos anteriormente: 32, lo que si añadimos un sprite en comparación con nuestro personaje jugable, tenemos la siguiente comparación:
+
+![comparacion_sin_escala](./Media/comparacion_sin_escala.png).
+
+Claramente, como ambos los tenemos en la misma escala y el PPU es distinto, la diferencia es claramente notoria, si aplicamos una escala al personaje no jugable de 0.36, tendriamos a ambos personajes que ocuparian 1 ud de Unity.
+
+![alt text](image.png)
+
+No obstante, por mucho que escalemos ambos personajes, el tamaño de los pixeles no es el mismo.
+Un píxel de imagen ocupa Scale ÷ PPU unidades de escena:
+
+Player (PPU 98, Scale 1): 1 ÷ 98 ≈ 0,0102 unidades por píxel.
+Female (PPU 32, Scale 0,36): 0,36 ÷ 32 ≈ 0,01125 unidades por píxel.
+
+En resumen, los pixeles de Female son un 10% mayores a los pixeles a los del player, lo cual visualmente provoca un desequilibrio visual que a la larga es erratico, dado a que uno requiere de mas pixeles para poder tener el mismo tamaño que el otro.
+
+La solución para obtener una uniformidad con todos los sprites del juego se basan en que deben tener el mismo PPU.  
+Así, un píxel de imagen ocupa siempre lo mismo en pantalla, aunque cambie el tamaño del personaje. Si necesitas un sprite más grande o más pequeño, cambia la imagen o la escala de forma coherente, no el PPU de un único sprite.
 
 
 
