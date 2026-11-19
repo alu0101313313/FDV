@@ -16,7 +16,7 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ## 2. Tareas a Realizar
 
-  1. [ ] Realizar los diferentes ejercicios marcados en la [hoja de ejercicios](https://docs.google.com/document/d/18_EWkMjJ2FBR3tfW_vu2qM16d7farPdCy09AC_LEeog/edit?tab=t.0)
+  1. [ ] Realizar los diferentes ejercicios marcados en la [hoja de ejercicios](https://docs.google.com/document/d/14T_HCzmx1xAshkD94H7dGztcy1F3adwIi1UPQeZu1VY/edit?tab=t.0)
 
 ## 3. Desarrollo
 
