@@ -267,10 +267,82 @@ En resumen, los pixeles de Female son un 10% mayores a los pixeles a los del pla
 La solución para obtener una uniformidad con todos los sprites del juego se basan en que deben tener el mismo PPU.  
 Así, un píxel de imagen ocupa siempre lo mismo en pantalla, aunque cambie el tamaño del personaje. Si necesitas un sprite más grande o más pequeño, cambia la imagen o la escala de forma coherente, no el PPU de un único sprite.
 
+Finalmente con el ultimo ejercicio, trataremos de manejar la relacion de aspecto de la camara, con los personajes.
 
+Para comenzar en la camara tenemos una configuración predeterminada para un proyecto 2D, en la que tenemos lo siguientes datos
+
+![camera_preset](./Media/camera_preset.png)
+
+Concretamente nos centrarmeos en que la proyección es ortogonal y el tamaño es 5. Por un lado que la camara sea ortogonal, indica entre otras cosas que la relación que tiene para captar elementos en su lente es realtivo a esta formula.
+
+```
+Ud de Unity en vertical = 2 * Size
+```
+
+Si correspondemos con el tamaño 5, podemos ver que la camara ortografica graba hasta 10 ud de Unity en vertical (desde -5 a 5 de altura), los cuales podemos contar en la siguiente imagen:
+
+![orthographic_pt1](./Media/relacion_size_2.png)
+
+Precisamente si colocamos en los limites, estos entrarian cortados en la escena.
+
+![cortados](./Media/cortados_img.png)
+
+Ahora lo que tratamos es ver como se modifican nuestros personajes con diferentes resoluciones de pantalla como por ejemplo con una relación 16:9, 4:3, y de 2560x1080
+
+- Resolución 16:9
+![16:9](./Media/img_16.9.png)
+
+- Resolución 4:3
+![4:3](./Media/img_4.3.png)
+
+- Resolución 2560x1080
+![2560x1080](./Media/img_2560x1080.png)
+
+Como podemos apreciar, la relación de aspecto entre las 3 resoluciones no cambia en la altura, sino que difiere en las unidades de Unity que pilla la camara en el ancho, tal que cuando mas abarque la relación de aspecto, mas unidades de Unity pilla la camara en lo ancho.
+
+Ahora tocaremos el tamaño que capta la camara. Por defecto tiene un tamaño 5, pero nos piden probar desde un tamaño 2 hacia un tamaño 10.
+
+Al pasar de Size 2 a Size 10, el personaje se ve 5 veces más pequeño. Size funciona como un zoom: cuanto mayor es, más nivel cabe en pantalla. La prueba se encuentra en las siguientes imagenes:
+
+- Size 2:
+![camera size 2](./Media/camera_size2.png)
+
+- Size 10:
+![camera size 10](./Media/camera_size10.png)
+
+Ahora nos encargamos de mirar la anchura de la camara. Anteriormente, nos encargamos de ver con las relaciones de aspectos, que cantidad de unidades de Unity se captan a lo alto, mientras que ahora trataremos de conocer cuando recoge la camara en el ancho en diferentes resoluciones.
+
+Si fijamos un tamaño 5 de la camara, las diferentes resoluciones indican que ancho es capaz de pillar la camara:
+
+- Resolución 16:9
+![16:9](./Media/img_16.9.png)
+
+- Resolución 4:3
+![4:3](./Media/img_4.3.png)
+
+- Resolución 2560x1080
+![2560x1080](./Media/img_2560x1080.png)
+
+Si tenemos en cuenta la relación anterior de que con Size = 5, el valor que tenemos de unidades de Unity en altura es 10, El calculo lo podemos resovler con la siguiente formula:
+
+```
+altura * proporcion
+
+16:9 -> 10 * 16 / 9 = 17,78 uds
+4:3  -> 10 * 4 / 3  = 13,33 uds
+2560 x 1080 -> 10 * 21 / 9 = 23,7 uds
+```
+
+Para terminar, tenemos que comprobar en que caso esto afecta a un videojuego multijugador. Es decir, si tuviesemos que comparar este videojuego con dos personas que lo jugasen con dos mmonitores distintos, que cambios habria.
+
+No ven la misma cantidad de nivel. Ambos ven 10 unidades de alto, pero el jugador con el monitor más ancho ve más a izquierda y derecha.
+
+Esto es un problema en juegos donde ver lo que viene es parte de la competición o de la jugabilidad, por ejemplo en un multijugador competitivo, un shooter 2D, un endless runner o un shmup. Un jugador con más anchura puede ver enemigos o peligros antes que el otro.
+
+Para evitarlo, se puede fijar la anchura visible en lugar de la altura, o usar la proyección Hor+ de Unity, que mantiene la anchura constante en distintas pantallas.
 
 ## 4. Conclusiones
-Gracias a esta práctica, podemos tener unas nociones esenciales de como 
+Gracias a esta práctica, podemos tener unas nociones esenciales como funciona un proyecto en 2D. Se ha tocado configuraciones como las animaciones y su forma de manejarlas con la maquina de estados, el trabajo con los tilemaps, y los diferentes recortados de sprites, las relaciones de aspecto de la camara y su influencia en como permite el visionado de un juego, el PPU y su relevancia para el calculo de pixeles, entre otras.
 
 ## 5. Bibliografía
 1. **Enunciado de la práctica:** [https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/assign/view.php?id=23548](https://campusvirtual.ull.es/2627/doctoradoyposgrado/mod/assign/view.php?id=23548)
