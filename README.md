@@ -1,4 +1,4 @@
-# Ejercicios 0X: 
+# Ejercicios 04: Mapas y Físicas 
 <sup> José Javier Ramos Carballo, [alu0101313313](https://github.com/alu0101313313)
 
 
