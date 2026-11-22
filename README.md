@@ -125,10 +125,11 @@ public class PhysicMovement : MonoBehaviour
 }
 ```
 
-
 ![PhysicMovement](./Media/physicMovement.gif)
 
 ![ThrowMechanic](./Media/throwMechanic.gif)
+
+![Score](./Media/Score.gif)
 
 
 ## 4. Conclusiones
