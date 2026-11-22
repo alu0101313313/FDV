@@ -30,7 +30,64 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ![map](./Media/map.png)
 
+```C#
+using UnityEngine;
 
+public class PlayerMovement : MonoBehaviour
+{
+	public float speed = 5f;
+	private SpriteRenderer spriteRenderer;
+
+	// Start is called once before the first execution of Update after the MonoBehaviour is created
+	void Start()
+	{
+		spriteRenderer = GetComponent<SpriteRenderer>();
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+		float horizontalUpdate = Input.GetAxis("Horizontal");
+		float verticalUpdate = Input.GetAxis("Vertical");
+
+		Vector3 direction = new Vector3(horizontalUpdate, verticalUpdate, 0f).normalized;
+		transform.Translate(direction * speed * Time.deltaTime, Space.World);
+	
+		if (horizontalUpdate < 0) spriteRenderer.flipX = true;
+		else if (horizontalUpdate > 0) spriteRenderer.flipX = false;
+	}
+}
+```
+
+
+```C#
+using System;
+using UnityEngine;
+
+public class CameraFollow : MonoBehaviour
+{
+  public Transform target;
+  private float smoothSpeed = 5f;
+  private Vector3 offset = new Vector3(0f, 0f, -10f);
+
+  // Update is called once per frame
+  void LateUpdate()
+  {
+    if (target == null) return;
+
+    Vector3 wishedPosition = target.position + offset;
+
+    float factor = Mathf.Clamp01(smoothSpeed * Time.deltaTime);
+    transform.position = Vector3.Lerp(transform.position, wishedPosition, factor);
+  }
+}
+```
+
+![2D WASD]()
+
+![Space Self](./Media/spaceSelf.gif)
+
+![Space World](./Media/SpaceWorld.gif)
 
 
 
