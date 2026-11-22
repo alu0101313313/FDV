@@ -20,6 +20,18 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ## 3. Desarrollo
 
+![tilemap_settings](./Media/tilemap_settings.png)
+
+![tilemap_slice](./Media/tilemap_slice.png)
+
+![tile_palette](./Media/tile_palette.png)
+
+![layers](./Media/layers.png)
+
+![map](./Media/map.png)
+
+
+
 
 
 ## 4. Conclusiones
