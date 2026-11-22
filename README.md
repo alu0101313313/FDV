@@ -131,6 +131,8 @@ public class PhysicMovement : MonoBehaviour
 
 ![Score](./Media/Score.gif)
 
+![Final](./Media/Final.gif)
+
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como 
