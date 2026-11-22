@@ -128,6 +128,8 @@ public class PhysicMovement : MonoBehaviour
 
 ![PhysicMovement](./Media/physicMovement.gif)
 
+![ThrowMechanic](./Media/throwMechanic.gif)
+
 
 ## 4. Conclusiones
 Gracias a esta práctica, podemos tener unas nociones esenciales de como 

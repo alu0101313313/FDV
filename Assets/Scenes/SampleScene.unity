@@ -20605,6 +20605,7 @@ GameObject:
   - component: {fileID: 631906807}
   - component: {fileID: 631906811}
   - component: {fileID: 631906812}
+  - component: {fileID: 631906813}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -20767,7 +20768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631906806}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d2c7cc56f91c3747ad937439c923b1e, type: 3}
   m_Name: 
@@ -20787,6 +20788,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveAndRotate2D
   speed: 4
   rotationSpeed: 180
+--- !u!114 &631906813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631906806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5988fc9b29a5054f8ae8b0d4be7ad17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhysicMovement
+  speed: 5
 --- !u!1 &1083947872
 GameObject:
   m_ObjectHideFlags: 0
