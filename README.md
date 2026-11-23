@@ -20,11 +20,19 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ## 3. Desarrollo
 
+Para comenzar con esta práctica, nos debemos instalar la herramienta de _Cinemachine_, la cual nos brindara el funcionamiento de los ejercicios que queremos ejecutar. Para ello accedemos al package manager de Unity y buscamos el paquete de _Cinemachine_. 
+
 ![Cinemachine_pt1](./Media/InstallCinemachine.png)
+
+Tras instalarlo, tiene que salir al buscarlo en el editor de Unity.
 
 ![cinemachine_pt2](./Media/cinemachine.png)
 
+A partir de aqui comenzaremos a realizar los ejercicios de la práctica. 
+
 ![tarea1](./Media/cameras_config_pt1.gif)
+
+Como podemos ver en la ejecucción, tenemos diferentes elementos a tocar en las camaras, como son las zonas de la camara. En ella se distingue 
 
 ![confined_zone_1](./Media/confined_zone_1.png)
 
