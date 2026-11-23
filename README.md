@@ -66,6 +66,8 @@ public class ExplosionTrigger : MonoBehaviour
 
 ![tarea8](./Media/slow_fast_motion.gif)
 
+![tarea9](./Media/lock-free.gif)
+
 
 
 ## 4. Conclusiones
