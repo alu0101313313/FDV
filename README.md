@@ -36,6 +36,8 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ![tarea3](./Media/exercise3.gif)
 
+![tarea4](./Media/exercise4.gif)
+
 
 
 
