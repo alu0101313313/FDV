@@ -30,7 +30,7 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ![confined_zone_2](./Media/confinedZone_2.png)
 
-![tarea2](./Media/twoCameras.gif)
+![tarea 2](./Media/twoCameras.gif)
 
 ![npc_target_group](./Media/npc_target_group.png)
 
