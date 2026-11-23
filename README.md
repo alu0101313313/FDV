@@ -32,6 +32,10 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ![tarea2](./Media/twoCameras.gif)
 
+![npc_target_group](./Media/npc_target_group.png)
+
+![tarea3](./Media/exercise3.gif)
+
 
 
 
