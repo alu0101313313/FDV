@@ -60,6 +60,12 @@ public class ExplosionTrigger : MonoBehaviour
 
 ![tarea5](./Media/explosion.gif)
 
+![tarea6](./Media/zoom.gif)
+
+![tarea7](./Media/switch.gif)
+
+
+
 
 
 ## 4. Conclusiones
