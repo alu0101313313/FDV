@@ -26,9 +26,9 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ![tarea1](./Media/cameras_config_pt1.gif)
 
-![alt text](./Media/confined_zone_1.png)
+![confined_zone_1](./Media/confined_zone_1.png)
 
-![alt text](./Media/confinedZone_2.png)
+![confined_zone_2](./Media/confinedZone_2.png)
 
 ![tarea2](./Media/twoCameras.gif)
 
