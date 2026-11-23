@@ -64,7 +64,7 @@ public class ExplosionTrigger : MonoBehaviour
 
 ![tarea7](./Media/switch.gif)
 
-
+![tarea8](./Media/slow_fast_motion.gif)
 
 
 
