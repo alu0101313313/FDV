@@ -20,8 +20,17 @@ En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](h
 
 ## 3. Desarrollo
 
-![Cinemachine](./Media/InstallCinemachine.png)
+![Cinemachine_pt1](./Media/InstallCinemachine.png)
 
+![cinemachine_pt2](./Media/cinemachine.png)
+
+![tarea1](./Media/cameras_config_pt1.gif)
+
+![alt text](./Media/confined_zone_1.png)
+
+![alt text](./Media/confinedZone_2.png)
+
+![tarea2](./Media/twoCameras.gif)
 
 
 
