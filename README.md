@@ -12,7 +12,7 @@
 
 
 ## 1. Introducción
-En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](https://campusvirtual.ull.es/2627/doctoradoyposgrado/course/view.php?id=2627110295), nos encargaremos de realizar una serie de ejercicios relativos a como funciona
+En esta práctica de la asignatura [Fundamentos del Desarrollo de Videojuegos](https://campusvirtual.ull.es/2627/doctoradoyposgrado/course/view.php?id=2627110295), nos encargaremos de realizar una serie de ejercicios relativos a como funcionan las físicas y los elementos del mapa en un proyecto top-down 2D. 
 
 ## 2. Tareas a Realizar
 
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
 Cabe destacar la declaración y posterior inicialización unica del _spriteRenderer_ que se utilizará para girar el sprite del personaje dependiendo de la dirección horizontal a la que nos dirigamos.
 
-> ![NOTE]  
+> [!NOTE]  
 > Adicionalmente a la práctica, he decidido tambien incluir un código que nos permite que la camara este adherida al personaje, tal que cuando el personaje se mueva, la camara se siga, permitiendo acceder a mas mapa que esta contemplado fuera del alcance de la camara en su posición inicial. 
 
 
